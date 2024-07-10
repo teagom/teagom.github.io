@@ -22,17 +22,19 @@ What the script will do?
 1.	create a folder with name-800
 2.	convert all images of folder to 50% of original size
 
+F: Folder name
+I: Image file
 ```
 cd /tmp/my-albuns
 SIZE='50%'
 OUT='800'
-for x in $(ls)
+for F in $(ls)
 	do
-	mkdir $x-$OUT
-	for xx in $(ls $x)
+	mkdir $F-$OUT
+	for I in $(ls $F)
 		do
-		echo "+ $x/$xx";
-		convert -resize $SIZE $x/$xx $x-$OUT/$xx;
+		echo "+ $F/$I";
+		convert -resize $SIZE $F/$I $F-$OUT/$I;
 	done
 done
 ```

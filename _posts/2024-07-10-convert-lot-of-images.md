@@ -13,6 +13,7 @@ drwxrwxr-x  2 user user    4096 Out 13 19:11 componentes-diversos
 ```
 1.	create a folder with name-800
 2.	convert all images of folder to 50% of original size.
+
 set variables
 ```
 SIZE='50%'		# resize image to 50% of owner size

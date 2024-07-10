@@ -20,11 +20,12 @@ OUT='800'	# output to converted folder name, 800x600
 
 What the script will do?
 1.	create a folder with name-800
-2.	convert all images of folder to 50% of original size.
+2.	convert all images of folder to 50% of original size
+
 ```
 cd /tmp/my-albuns
 SIZE='50%'
-OUTPUT='800'
+OUT='800'
 for x in $(ls)
 	do
 	mkdir $x-$OUT
@@ -35,6 +36,7 @@ for x in $(ls)
 	done
 done
 ```
+
 output
 ```
 drwxrwxr-x  2 user user    4096 Out  4 19:10 ci

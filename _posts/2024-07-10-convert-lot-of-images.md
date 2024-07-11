@@ -1,7 +1,15 @@
-# How to convert lot of images?
+## How to convert lot of images?
 ### This text explain how to convert lof of images of lot of folders.
 
+Enviromment
+1.	Linux Ubuntu 20.04 64
+2.	convert command, ImageMagick Package
+
 We will to use the ***convert*** command, bash, convert - https://packages.ubuntu.com/disco/graphicsmagick-imagemagick-compat
+Install Image Magick
+```
+apt install imagemagick
+```
 
 This is a sample
 ```
@@ -22,8 +30,8 @@ What the script will do?
 1.	create a folder with name-800
 2.	convert all images of folder to 50% of original size
 
-F: Folder name
-I: Image file
+**F: Folder name**
+**I: Image file**
 ```
 cd /tmp/my-albuns
 SIZE='50%'
@@ -43,10 +51,10 @@ output
 ```
 drwxrwxr-x  2 user user    4096 Out  4 19:10 ci
 drwxrwxr-x  2 user user    4096 Out  4 19:10 ci-800
-drwxrwxr-x  2 user user    4096 Out 13 19:11 componentes-diversos
-drwxrwxr-x  2 user user    4096 Out 13 19:11 componentes-diversos-800
 drwxrwxr-x  2 user user    4096 Jul 12 16:07 eletrica
 drwxrwxr-x  2 user user    4096 Jul 12 16:07 eletrica-800
+drwxrwxr-x  2 user user    4096 Out 13 19:11 componentes-diversos
+drwxrwxr-x  2 user user    4096 Out 13 19:11 componentes-diversos-800
 ```
 ***Be carefull*** To Delete folder that contain 800 at end of name and all content.
 ```

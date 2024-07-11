@@ -1,7 +1,7 @@
 # OpenSSH - Custom settings for more security.
 
 For more security change ssh port for a custom port, but a risk to sshd broken and you can lost server ssh access.
-To test a custom settings before to the production
+To test a custom settings before to the production.
 
 1.  How to do this in safe mode?
 2.  How to avoid to lost ssh connection?
@@ -30,7 +30,7 @@ To test the syntax of custom config file
 sshd -t -f /etc/ssh/sshd_config.port5000
 ```
 
-Run a new server using new sshd_config, do not forget to open firewall port.
+Run a new server using new sshd_config, do not forget to open port at firewall.
 ```
 -4d: Ipv4 + debug
 -f : config file
@@ -42,7 +42,7 @@ ctrl+c to stop
 
 Open a new terminal and try a ssh connection using port 5000 from authorized client.
 ```
-ssh user@IP -p 5000
+ssh user@server -p 5000
 ```
 If you have success, then copy ssh_config.port5000 to sshd_config (default) and restart the service.
 **Try lot of times new connection before leaving your server!**

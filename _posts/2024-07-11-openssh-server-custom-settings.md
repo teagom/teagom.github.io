@@ -25,12 +25,12 @@ change port to 5000
 Port 5000
 ```
 
-To test the synta of custom config file
+To test the syntax of custom config file
 ```
 sshd -t -f /etc/ssh/sshd_config.port5000
 ```
 
-Run a new server using new sshd_config
+Run a new server using new sshd_config, do not forget to open firewall port.
 ```
 -4d: Ipv4 + debug
 -f : config file
@@ -39,3 +39,14 @@ Run a new server using new sshd_config
 /usr/sbin/sshd -4d -f /etc/ssh/sshd_config.port5000
 ```
 ctrl+c to stop
+
+Open a new terminal and try a ssh connection using port 5000 from authorized client.
+```
+ssh user@IP -p 5000
+```
+If you have success, then copy ssh_config.port5000 to sshd_config (default) and restart the service.
+**Try lot of times new connection before leaving your server!**
+```
+cp /etc/ssh/sshd_config.port5000 /etc/ssh/sshd_config
+sudo service ssh restart
+```

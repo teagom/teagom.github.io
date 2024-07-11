@@ -1,4 +1,4 @@
-### OpenSSH - Custom settings for more security.
+# OpenSSH - Custom settings for more security.
 
 For more security change ssh port for a custom port, but a risk to sshd broken and you can lost server ssh access.
 To test a custom settings before to the production

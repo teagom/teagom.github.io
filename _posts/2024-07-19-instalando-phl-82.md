@@ -153,3 +153,31 @@ ln -s http/www/phl82/index.html /var/www/. -f
 ```
 
 Agora é só acessar o http://ip_servidor com o navegador que irá abrir diretamente o PHL82.
+
+## Erro e solução
+
+###PHL 82 - index.html - valido
+Nota sobre copyright contida no arquivo "index.html" foi violada!
+
+Solução
+```
+phl82.cip - caminho para diretorio está incorreto, verificar todos ou index.html foi alterado errado.
+```
+
+###Erro com Ubuntu 64Bits
+Arquivo wxis.exe foi compilado em 32bits.
+```
+tail -f /var/log/apache2/error.log 
+[Tue Oct 16 13:36:58 2012] [error] (2)No such file or directory: exec of '/var/www/phl82/cgi-bin/wxis.exe' failed
+[Tue Oct 16 13:36:58 2012] [error] [client 192.168.250.250] Premature end of script headers: wxis.exe, referer: http://172.0.0.1/phl82/
+```
+
+###Erro
+```
+WXIS|fatal error|unavoidable|recread/xropn/w| 
+usuario apache não tem permissão para ler arquivos
+```
+Solução, dar permissão de dono aos arquivos para o usuario que executa o apache.
+cd /var/www/http
+chmod 755 bases -R
+chown www-data:www-data bases -R

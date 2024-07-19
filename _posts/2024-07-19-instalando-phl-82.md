@@ -179,7 +179,9 @@ WXIS|fatal error|unavoidable|recread/xropn/w|
 usuario apache não tem permissão para ler arquivos
 ```
 
-Solução, dar permissão de dono aos arquivos para o usuario que executa o apache.
+**Solução**
+Configurar permissão de dono aos arquivos para o usuario que executa o apache2,
+normalmente é o user www-data.
 ```
 cd /var/www/http
 chmod 755 bases -R

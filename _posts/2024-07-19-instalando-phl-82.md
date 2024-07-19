@@ -1,0 +1,30 @@
+# Instalando o PHL 8.2
+## Instalando e configurando sistema PHL - Personal Home Library
+
+Autor e download do PHL - http://www.elysio.com.br
+
+BibliotecaPHL é um sistema para gerenciar uma biblioteca, empréstimo, consulta, cadastros e tudo aquilo que uma biblioteca necessita para funcionar. Aqui mostro como instalar o PHL, não tenho conhecimento de como gerenciar o sistema, banco de dados, usuários, livros e outros.
+
+Todos os passos a seguir deverá ser feito com usuário ROOT!
+$ = linha de comando
+
+Ambiente
+```
+***Não funciona em 64Bits porque arquivos foram compilados em 32bits***
+Linux Debian Lenny Arquitetura 32Bits ou 686.
+Apache2 e PHL82
+```
+
+Instalar o apache
+```apt-get install apache2```
+
+Pacotes instalados no sistema, pode usar o comando:
+```
+dpkg -l | grep -i apache
+ii  apache2 2.2.11-2ubuntu2.5   Apache HTTP Server metapackage
+ii  apache2-mpm-prefork   2.2.11-2ubuntu2.5   Apache HTTP Server - traditional non-threade
+ii  apache2-utils 2.2.11-2ubuntu2.5  utility programs for webservers
+ii  apache2.2-common    2.2.11-2ubuntu2.5    Apache HTTP Server common files
+ii  libapache2-mod-php5    5.2.6.dfsg.1-3ubuntu4.4 server-side, HTML-embedded scripting languag
+ii  libapr1    1.2.12-5ubuntu0.1    The Apache Portable Runtime Library
+ii  libaprutil1    1.2.12+dfsg-8ubuntu0.3   The Apache Portable Runtime Utility Library

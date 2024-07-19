@@ -22,16 +22,16 @@ Diretório que vamos usar para descompactar o tar.gz do PHL
 Diretorio padrao Apache2, Document Root  
 /var/www
 
-Diretorio CGI do apache
+Diretorio CGI do apache2
 /usr/lib/cgi/bin
 
-Diretorio do PHL dentro do apache
+Diretorio do PHL dentro do apache2
 /var/www/http
 
 Download http://www.elysio.com.br/site/downloads.html
 ```
 
-Instalar o apache e ligar/carregar o modulo CGI.
+Instalar o apache2 e ligar/carregar o modulo CGI.
 ```
 apt-get update
 apt-get install apache2
@@ -147,7 +147,7 @@ Permissão para o Apache2
 chown www-data.www-data /var/www/http -R
 ```
 
-Agora já podemos acessar o PHL pelo navegador, http://ip_servidor/phl82/ .Se você quer acessar apenas o endereço do  servidor e ir direto ao PHL82, faça o link do phl82/index.html para o  document root do apache /var/www  criando link
+Agora já podemos acessar o PHL pelo navegador, http://ip_servidor/phl82/, se você quer acessar apenas o endereço do servidor e ir direto ao PHL82, faça o link do phl82/index.html para o document root do apache /var/www criando um simbolic link.
 ```
 ln -s http/www/phl82/index.html /var/www/. -f
 ```
@@ -155,16 +155,15 @@ ln -s http/www/phl82/index.html /var/www/. -f
 Agora é só acessar o http://ip_servidor com o navegador que irá abrir diretamente o PHL82.
 
 ## Erro e solução
-
-###PHL 82 - index.html - valido
+### PHL 82 - index.html - valido
 Nota sobre copyright contida no arquivo "index.html" foi violada!
 
 Solução
 ```
-phl82.cip - caminho para diretorio está incorreto, verificar todos ou index.html foi alterado errado.
+phl82.cip - caminho para diretorio está incorreto, verificar todos ou conteúdo do index.html foi alterado errado.
 ```
 
-###Erro com Ubuntu 64Bits
+### Erro com Ubuntu 64Bits
 Arquivo wxis.exe foi compilado em 32bits.
 ```
 tail -f /var/log/apache2/error.log 
@@ -172,12 +171,15 @@ tail -f /var/log/apache2/error.log
 [Tue Oct 16 13:36:58 2012] [error] [client 192.168.250.250] Premature end of script headers: wxis.exe, referer: http://172.0.0.1/phl82/
 ```
 
-###Erro
+### Erro WXIS|fatal error
 ```
 WXIS|fatal error|unavoidable|recread/xropn/w| 
 usuario apache não tem permissão para ler arquivos
 ```
+
 Solução, dar permissão de dono aos arquivos para o usuario que executa o apache.
+```
 cd /var/www/http
 chmod 755 bases -R
 chown www-data:www-data bases -R
+```

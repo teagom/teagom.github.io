@@ -155,7 +155,9 @@ ln -s http/www/phl82/index.html /var/www/. -f
 Agora é só acessar o http://ip_servidor com o navegador que irá abrir diretamente o PHL82.
 
 ## Erro e solução
-### PHL 82 - index.html - valido
+---
+
+### Erro PHL 82 - index.html - valido
 Nota sobre copyright contida no arquivo "index.html" foi violada!
 
 Solução

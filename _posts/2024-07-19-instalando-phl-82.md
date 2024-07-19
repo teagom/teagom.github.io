@@ -7,7 +7,9 @@ BibliotecaPHL é um sistema para gerenciar uma biblioteca, empréstimo, consulta
 
 Todos os passos a seguir deve ser feito com usuário ROOT ou ter acesso sudo.
 
-***Não funciona em 64Bits porque arquivos foram compilados em 32bits.***
+***Não funciona em 64Bits porque arquivos foram compilados em 32bits.
+As informações inseridas em arquiterura 64 ficam todas bagunçadas,
+sem nenhum sentido de leitura.***
 
 Ambiente
 ```
@@ -26,11 +28,12 @@ Diretorio CGI do apache
 Diretorio do PHL dentro do apache
 /var/www/http
 
-Download  http://www.elysio.com.br/site/downloads.html
+Download http://www.elysio.com.br/site/downloads.html
 ```
 
 Instalar o apache e ligar/carregar o modulo CGI.
 ```
+apt-get update
 apt-get install apache2
 a2enmod cgid
 ```
@@ -48,7 +51,6 @@ ii  libaprutil1    1.2.12+dfsg-8ubuntu0.3   The Apache Portable Runtime Utility 
 ```
 
 ## Instalação
-
 vamos para o diretorio src
 ```
 cd /usr/local/src
@@ -86,3 +88,68 @@ Alterando o original para o caminho do diretorio apache.
 ```
 more cgi-bin/phl82.cip.original | sed s/http/'var\/www\/http'/g > cgi-bin/phl82.cip
 ```
+
+O conteudo original do arquivo
+```
+phl_*=/http/bases/phl_*
+actab=/http/bases/actab
+uctab=/http/bases/uctab
+menu*=/http/www/phl82/html/menu*
+cabe*=/http/www/phl82/html/cabe*
+mens*=/http/www/phl82/html/mens*
+rest*=/http/www/phl82/html/rest*
+inde*=/http/www/phl82/html/inde*
+logo*=/http/www/phl82/html/logo*
+atra*=/http/www/phl82/php/mail_lote/atra*
+aler*=/http/www/phl82/php/mail_lote/aler*
+disp*=/http/www/phl82/php/mail_lote/disp*
+usua*=/http/www/phl82/php/mail_lote/usua*
+phl.css=/http/www/phl82/css/phl.css
+tab_*=/http/cgi-bin/phl82/tabs/tab_*
+```
+
+como deve ficar
+```
+00*=/var/www/http/bases/00*
+phl_*=/var/www/http/bases/phl_* actab=/var/www/http/bases/actab
+uctab=/var/www/http/bases/uctab
+menu*=/var/www/http/www/phl82/html/menu*
+cabe*=/var/www/http/www/phl82/html/cabe*
+mens*=/var/www/http/www/phl82/html/mens*
+rest*=/var/www/http/www/phl82/html/rest*
+inde*=/var/www/http/www/phl82/html/inde*
+logo*=/var/www/http/www/phl82/html/logo*
+atra*=/var/www/http/www/phl82/php/mail_lote/atra*
+aler*=/var/www/http/www/phl82/php/mail_lote/aler*
+disp*=/var/www/http/www/phl82/php/mail_lote/disp*
+usua*=/var/www/http/www/phl82/php/mail_lote/usua*
+phl.css=/var/www/http/www/phl82/css/phl.css
+tab_*=/var/www/http/cgi-bin/phl82/tabs/tab_*
+```
+
+Verifique se o arquivo foi alterado corretamente:
+```
+more cgi-bin/phl82.cip
+```
+
+Feito isso, vamos criar um link do PHL para o diretorio CGI do apache:
+```
+ln -s /var/www/http/cgi-bin/* /usr/lib/cgi-bin/.
+```
+
+Vamos criar outro link, do PHL82 para a raiz do diretorio apache, assim deixamos o sistema PHL acessivel pelo navegador.
+```
+ln -s /var/www/http/www/phl82 /var/www/.
+```
+
+Permissão para o Apache2
+```
+chown www-data.www-data /var/www/http -R
+```
+
+Agora já podemos acessar o PHL pelo navegador, http://ip_servidor/phl82/ .Se você quer acessar apenas o endereço do  servidor e ir direto ao PHL82, faça o link do phl82/index.html para o  document root do apache /var/www  criando link
+```
+ln -s http/www/phl82/index.html /var/www/. -f
+```
+
+Agora é só acessar o http://ip_servidor com o navegador que irá abrir diretamente o PHL82.

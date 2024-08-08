@@ -1,4 +1,4 @@
-## Facebook Bots flooding a web server, how to block?
+## Facebook bots flooding a web server, how to block?
 A excessive / massive requests from facebook are flooding a web (apache2) server and freeze it for each 30 minutes.
 
 Doubts

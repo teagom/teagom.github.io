@@ -1,5 +1,4 @@
 ## Facebook Bots flooding a web server, how to block?
-
 A excessive / massive requests from facebook are flooding a web (apache2) server and freeze it for each 30 minutes.
 
 Doubts
@@ -13,7 +12,8 @@ Doubts
 173.252.107.x - - [01/Aug/2024:10:20:45 -0300] "GET
 index?q=\xe7\xbb\x8d\xe5\x85\xb4\xe5\x93\xaa\xe9\x87\x8c\xe6\x9c\x89\xe6\x9c
 HTTP/1.1" 200 3847 "-" "facebookexternalhit/1.1
-(+http://www.facebook.com/externalhit_uatext.php)"```
+(+http://www.facebook.com/externalhit_uatext.php)"
+```
 
 Count hits daily of apache access log
 ```

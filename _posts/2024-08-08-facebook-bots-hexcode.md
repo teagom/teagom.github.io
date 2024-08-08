@@ -8,11 +8,12 @@ Doubts
 3.  Are facebook-bots or attacker are using the game/app dev environment of facebook to do this?
 4.  Bad robot?
 
-/va/log/apache2/access.log
-
-`173.252.107.x - - [01/Aug/2024:10:20:45 -0300] "GET
-index?q=\xe7\xbb\x8d\xe5\x85\xb4\xe5\x93\xaa\xe9\x87\x8c\xe6\x9c\x89\xe6\x9c HTTP/1.1" 200 3847 "-" "facebookexternalhit/1.1
-(+http://www.facebook.com/externalhit_uatext.php)"`
+/var/log/apache2/access.log
+```
+173.252.107.x - - [01/Aug/2024:10:20:45 -0300] "GET
+index?q=\xe7\xbb\x8d\xe5\x85\xb4\xe5\x93\xaa\xe9\x87\x8c\xe6\x9c\x89\xe6\x9c
+HTTP/1.1" 200 3847 "-" "facebookexternalhit/1.1
+(+http://www.facebook.com/externalhit_uatext.php)"```
 
 Count hits daily of apache access log
 ```
@@ -30,8 +31,8 @@ To block, add this rule in the fail2ban service,
 # apache filters.
 [Definition]
 datepattern = ^[^\[]*\[({DATE})
-failregex = ^<HOST> -.*(GET|POST|HEAD).*\\x[a-zA-Z0-9].*$
-            ^<HOST> -.*facebookexternalhit.*$
-
+failregex   = ^<HOST> -.*(GET|POST|HEAD).*\\x[a-zA-Z0-9].*$
+              ^<HOST> -.*facebookexternalhit.*$
+              
 ignoreregex =
 ```

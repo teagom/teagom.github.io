@@ -5,6 +5,19 @@ Merge PDF files
 gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile=finished.pdf  rg2020.pdf rg2020-ver.pdf 
 ```
 
+How to print a total of register from a table? Total COUNT in postgreSQL.
+To create a file with the follow content:
+```
+echo "SELECT COUNT(*) FROM client_client WHERE confirmed=1;"  > /tmp/command.sql
+```
+
+Print date time and total of occurences 5 to 5 minutes, sleep command work's in seconds,
+crtl+c to out.
+```
+su - postgres 
+while [ -z ]; do date && psql -d mydatabase < command.sql; sleep 300; done
+```
+
 The best traffic monitoring
 ```
 iptraf-ng

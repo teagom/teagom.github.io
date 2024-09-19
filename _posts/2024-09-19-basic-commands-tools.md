@@ -3,7 +3,6 @@
 Merge PDF files
 ```
 gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile=finished.pdf  rg2020.pdf rg2020-ver.pdf 
-Fail2Ban - UnBan
 ```
 
 The best traffic monitoring

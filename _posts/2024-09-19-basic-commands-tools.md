@@ -11,10 +11,8 @@ To create a file with the follow content:
 ```
 echo "SELECT COUNT(*) FROM client_client WHERE confirmed=1;"  > /tmp/command.sql
 ```
-
-
-### Print date time and total of occurences 5 to 5 minutes, sleep command work's in seconds,
-crtl+c to out.
+Print date time and total of occurences 5 to 5 minutes, sleep command work's in seconds,
+crtl+c to out. Execute the command as postgres user.
 ```
 su - postgres 
 while [ -z ]; do date && psql -d mydatabase < command.sql; sleep 300; done

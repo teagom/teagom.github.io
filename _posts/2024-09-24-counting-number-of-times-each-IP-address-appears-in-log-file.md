@@ -12,7 +12,7 @@ This is the format of access.log, I want to print total of hits per IP.
 ```
 
 To explain parts of last command line
-- 1 print only IP column
+1 print only IP column
 ```
 cd /var/log/apache2
 more access.log | awk '{print $1}'
@@ -23,7 +23,7 @@ more access.log | awk '{print $1}'
 45.148.10.242
 ```
 
-- 2 sort IP list
+2 sort IP list
 ```
 more access.log | awk '{print $1}' | sort
 # output
@@ -36,7 +36,7 @@ more access.log | awk '{print $1}' | sort
 95.214.55.x
 ```
 
-- 3 counter total of hits per IP
+3 counter total of hits per IP
 ```
 more access.log | awk '{print $1}' | sort | uniq -c
 # output
@@ -61,12 +61,13 @@ more access.log | awk '{print $1}' | sort | uniq -c
  2 95.214.55.43
  ```
 
+## Custom filter
 Filter 40x apache2 error, counter total of hits per IP.
 ```
 more access.log | grep '\" 40[0|1|2|3|4]' | awk '{print $1}' | sort | uniq -c
 ```
 
-Filter 200 apache2 error, counter total of hits per IP.
+Filter 200 apache2 success, counter total of hits per IP.
 ```
 more access.log | grep '\" 200' | awk '{print $1}' | sort | uniq -c
 ```

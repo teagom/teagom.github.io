@@ -11,7 +11,8 @@ This is the format of access.log, I want to print total of hits per IP.
 192.168.0.x - - [24/Sep/2024:02:03:55 -0300] "GET / HTTP/1.1" 200
 ```
 
-To explain parts of last command line
+## To explain parts of last command line
+
 1 print only IP column
 ```
 cd /var/log/apache2

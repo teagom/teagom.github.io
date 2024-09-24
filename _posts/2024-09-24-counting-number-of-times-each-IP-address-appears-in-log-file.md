@@ -1,4 +1,5 @@
-# How to print a total of hits per IP?
+# Counting number of times each IP address appears in log file.
+## How to print a total of hits per IP?
 
 I will use the common log of apache2
 ```
